@@ -1,0 +1,77 @@
+<div>
+  @if(homePageStore.loader()){
+  <div class="flex items-center justify-center h-screen">
+    <span class="loader"></span>
+  </div>
+  } @else {
+  <!-- Hero  -->
+  <div class="bg-bgColor h-48 flex flex-col items-center justify-center">
+    <span class="text-secondary text-4xl font-bold font-Raleway text-center">{{
+      homePageStore.selectedCourse()?.title
+    }}</span>
+    <div class="text-white text-2xl font-normal font-Raleway">
+      <span class="cursor-pointer" (click)="navigateToHomePage()">Home</span> /
+      <span>{{ homePageStore.selectedCourse()?.category }}</span>
+    </div>
+  </div>
+  <!-- Details -->
+  <div class="flex flex-col container px-8 py-20 mx-auto bg-white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <img
+        class="w-full h-96 object-cover rounded-md"
+        src="{{ homePageStore.selectedCourse()?.image }}"
+        alt="course image"
+      />
+      <div class="flex flex-col justify-between items-start">
+        <!-- -->
+        <div class="flex flex-col">
+          <span class="text-fourth text-2xl font-bold font-Raleway">
+            \ {{ homePageStore.selectedCourse()?.category }} \</span
+          >
+          <span class="text-textColor font-bold text-4xl font-Raleway">{{
+            homePageStore.selectedCourse()?.title
+          }}</span>
+        </div>
+        <!-- -->
+        <div class="my-6">
+          <span class="text-base text-black font-Raleway font-medium">{{
+            homePageStore.selectedCourse()?.description
+          }}</span>
+        </div>
+        <!-- -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Vision -->
+          <div class="flex">
+            <div class="bg-[#FFECEE] p-2 rounded-lg">
+              <img src="/imgs/vision.png" alt="Vision" />
+            </div>
+            <div class="flex flex-col ms-2">
+              <span class="text-fourth text-base font-bold font-Raleway"
+                >Our Vision</span
+              >
+              <span class="text-textColor text-base font-medium font-Raleway"
+                >It is a long esta -blished fact that</span
+              >
+            </div>
+          </div>
+          <!-- Goal -->
+          <div class="flex">
+            <div class="bg-[#FFECEE] p-2 rounded-lg">
+              <img src="/imgs/goal.png" alt="Vision" class="w-full h-full" />
+            </div>
+            <div class="flex flex-col ms-2">
+              <span class="text-fourth text-base font-bold font-Raleway"
+                >Our Goal</span
+              >
+              <span class="text-textColor text-base font-medium font-Raleway"
+                >It is a long esta -blished fact that</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  }
+</div>

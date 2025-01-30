@@ -1,0 +1,41 @@
+<section class="flex flex-col justify-center items-center">
+  <!-- Title -->
+  <h3 class="text-secondary text-2xl font-semibold font-Raleway">
+    \ Courses \
+  </h3>
+  <h1 class="text-textColor text-4xl font-semibold font-Raleway">
+    Our Latest Courses
+  </h1>
+
+  <!-- Tabs -->
+  <div class="hidden md:flex mt-10 w-full justify-center">
+    @for(category of homePageStore.categories(); track category.id;){
+    <div
+      class="flex justify-center font-Raleway items-center mx-2 rounded-lg w-44 bg-boxColor py-4 md:px-1 cursor-pointer hover:bg-primary text-white text-sm md:text-base font-semibold"
+      (click)="homePageStore.getCoursesByCategoryId(category.id)"
+    >
+      {{ category.name }}
+    </div>
+    }
+  </div>
+  <!-- Cards -->
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full justify-center items-center mt-6"
+  >
+    @for(course of homePageStore.courses(); track course.id;){
+    <div class="items-center">
+      <app-course-card [course]="course"></app-course-card>
+    </div>
+    }
+  </div>
+
+  <!-- Show All Courses -->
+  <div class="w-full justify-center items-center mt-6 flex">
+    <button
+      class="bg-secondary text-base font-Raleway text-white font-normal text-center rounded-md py-2 px-4"
+      (click)="navigateToAllCourses()"
+    >
+      Browse All Courses
+    </button>
+  </div>
+</section>

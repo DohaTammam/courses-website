@@ -1,0 +1,108 @@
+<div class="bg-[#24BB8C05] container mx-auto py-16 px-8" #colorContainer>
+  <div
+    class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+  >
+    <!-- Left Content -->
+    <div class="text-center lg:text-left flex flex-col justify-between">
+      <h1 class="text-4xl lg:text-7xl font-bold leading-snug text-[#101828]">
+        Better <span class="highlightedWord">Insights</span> For Business
+        <span class="highlightedWord">Growth</span>
+      </h1>
+      <p class="mt-4 text-[#777E90] font-Raleway">
+        {{ homePageStore.selectedBanner()?.brief }}
+      </p>
+      <button
+        class="mt-6 px-6 py-3 startedBtn text-white font-medium rounded-lg shadow-md w-full lg:w-1/4"
+      >
+        Get Started
+      </button>
+      <!-- color palatte -->
+      <div class="hidden md:flex mt-8">
+        <span
+          class="bg-primary me-4 rounded-[50%] px-[12px] py-[2px] text-primary cursor-pointer"
+          (click)="homePageStore.getBannerById(0)"
+          >.</span
+        >
+        <span
+          class="bg-[#A6E51C] me-4 rounded-full px-[12px] py-[2px] text-third cursor-pointer"
+          (click)="homePageStore.getBannerById(1)"
+          >.</span
+        >
+        <span
+          class="bg-[#FD6F00] me-4 rounded-full px-[12px] py-[2px] text-secondary cursor-pointer"
+          (click)="homePageStore.getBannerById(2)"
+          >.</span
+        >
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="flex flex-col">
+      <!-- Image -->
+      <div
+        class="mx-auto w-full h-full md:w-96 md:h-96 imageBg rounded-full overflow-hidden flex items-center justify-center"
+      >
+        <img
+          [src]="homePageStore.selectedBanner()?.image"
+          alt="Banner Image"
+          class="object-cover h-full w-full"
+        />
+      </div>
+      <!-- Status -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 justify-center lg:justify-start gap-4 mt-6"
+      >
+        <div
+          class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-3"
+        >
+          <div class="bg-blue-100 p-2 rounded-full hero_icon">
+            <img src="/imgs/video.png" alt="icon" />
+          </div>
+          <div>
+            <p class="text-xl font-bold text-[#101828]">2K+</p>
+            <p class="text-sm text-[#101828] font-light">Video Courses</p>
+          </div>
+        </div>
+        <div
+          class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-3"
+        >
+          <div class="bg-blue-100 p-2 rounded-full hero_icon">
+            <img src="/imgs/Board.png" alt="icon" />
+          </div>
+          <div>
+            <p class="text-xl font-bold text-[#101828]">5K+</p>
+            <p class="text-sm text-[#101828] font-light">Online Courses</p>
+          </div>
+        </div>
+        <div
+          class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-3"
+        >
+          <div class="bg-blue-100 p-2 rounded-full hero_icon">
+            <img src="/imgs/Board.png" alt="icon" />
+          </div>
+          <div>
+            <p class="text-xl font-bold text-[#101828]">250+</p>
+            <p class="text-sm text-[#101828] font-light">Tutors</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:hidden flex mt-8 items-center justify-center">
+        <span
+          class="bg-primary me-4 rounded-[50%] px-[12px] py-[2px] text-primary cursor-pointer"
+          (click)="homePageStore.getBannerById(0)"
+          >.</span
+        >
+        <span
+          class="bg-[#A6E51C] me-4 rounded-full px-[12px] py-[2px] text-third cursor-pointer"
+          (click)="homePageStore.getBannerById(1)"
+          >.</span
+        >
+        <span
+          class="bg-[#FD6F00] me-4 rounded-full px-[12px] py-[2px] text-secondary cursor-pointer"
+          (click)="homePageStore.getBannerById(2)"
+          >.</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
