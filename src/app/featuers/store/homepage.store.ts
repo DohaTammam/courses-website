@@ -16,6 +16,7 @@ interface state {
   courses: Course[] | null;
   selectedCourse: Course | null;
   selectedBanner: Banner | null;
+  loader: boolean;
   error: any | null;
 }
 
@@ -25,6 +26,7 @@ const initialState: state = {
   courses: null,
   selectedCourse: null,
   selectedBanner: null,
+  loader: false,
   error: null,
 };
 
@@ -86,22 +88,24 @@ export const homepageStore = signalStore(
       }
     },
     async getCourseById(id: string) {
+      patchState(store, { loader: true });
       const selectedCourse$ = homePageService.getCourses();
       try {
         const selectedCourse = await lastValueFrom(selectedCourse$);
         const selectedCourseVal = selectedCourse.Courses.find(
           (course: Course) => course.id === id
         );
-        patchState(store, { selectedCourse: selectedCourseVal });
+        patchState(store, { selectedCourse: selectedCourseVal, loader: false });
       } catch (error) {
         patchState(store, { error });
       }
     },
     async getCourses() {
+      patchState(store, { loader: true });
       const courses$ = homePageService.getCourses();
       try {
         const courses = await lastValueFrom(courses$);
-        patchState(store, { courses: courses.Courses });
+        patchState(store, { courses: courses.Courses, loader: false });
       } catch (error) {
         patchState(store, { error });
       }

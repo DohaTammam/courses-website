@@ -16,5 +16,6 @@ export class CourseCardComponent {
 
   viewDetails(id: string) {
     this.router.navigate([`/courses/details/${id}`]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

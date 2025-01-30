@@ -21,5 +21,6 @@ export class CoursesComponent {
 
   navigateToAllCourses() {
     this.router.navigate(['/courses']);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
