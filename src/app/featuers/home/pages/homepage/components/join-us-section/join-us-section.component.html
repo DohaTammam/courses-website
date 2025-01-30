@@ -8,14 +8,16 @@
         (click)="setType(1)"
         [class.bg-white]="typeId() === 1"
         [class.text-bgColor]="typeId() === 1"
-        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
+        [class.text-white]="typeId() === 2"
+        class="cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
         >Instructor</span
       >
       <span
         (click)="setType(2)"
         [class.bg-white]="typeId() === 2"
         [class.text-bgColor]="typeId() === 2"
-        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
+        [class.text-white]="typeId() === 1"
+        class="text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
         >Student</span
       >
     </div>
@@ -94,14 +96,16 @@
         (click)="setType(1)"
         [class.bg-white]="typeId() === 1"
         [class.text-bgColor]="typeId() === 1"
-        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
+        [class.text-white]="typeId() === 2"
+        class="cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
         >Instructor</span
       >
       <span
         (click)="setType(2)"
         [class.bg-white]="typeId() === 2"
         [class.text-bgColor]="typeId() === 2"
-        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
+        [class.text-white]="typeId() === 1"
+        class="text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
         >Student</span
       >
     </div>
@@ -147,7 +151,7 @@
         <div class="mb-3">
           <select
             formControlName="courseCategory"
-            class="w-full px-3 py-2 border rounded-md"
+            class="w-full px-3 py-2 border rounded-md text-[#8C94A3]"
           >
             <option value="" disabled selected>Course Category *</option>
             <option value="science">Science</option>
@@ -159,7 +163,7 @@
         <div class="mb-3">
           <select
             formControlName="courseLevel"
-            class="w-full px-3 py-2 border rounded-md"
+            class="w-full px-3 py-2 border rounded-md text-[#8C94A3]"
           >
             <option value="" disabled selected>Course Level *</option>
             <option value="beginner">Beginner</option>
