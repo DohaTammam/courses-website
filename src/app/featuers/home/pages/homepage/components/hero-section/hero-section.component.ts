@@ -27,8 +27,4 @@ export class HeroSectionComponent {
       );
     });
   }
-
-  ngOnInit() {
-    console.log('HeroSectionComponent', this.homePageStore.selectedBanner());
-  }
 }

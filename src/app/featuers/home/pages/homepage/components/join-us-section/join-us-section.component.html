@@ -6,37 +6,186 @@
     <div class="bg-bgColor rounded-3xl grid grid-cols-2 gap-4 p-3">
       <span
         (click)="setType(1)"
-        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        [class.bg-white]="typeId() === 1"
+        [class.text-bgColor]="typeId() === 1"
+        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
         >Instructor</span
       >
       <span
         (click)="setType(2)"
-        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        [class.bg-white]="typeId() === 2"
+        [class.text-bgColor]="typeId() === 2"
+        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
         >Student</span
       >
     </div>
-    <div class="flex flex-col"></div>
+    <div class="flex flex-col">
+      <form [formGroup]="instructorForm" class="mt-4">
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Name *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="mobile"
+            placeholder="Mobile No. *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+        <div class="my-3 text-base text-[#5B5B5B]">Address Details:</div>
+
+        <div class="grid grid-cols-2 gap-4 mb-3">
+          <input
+            type="text"
+            formControlName="country"
+            placeholder="Country *"
+            class="px-3 py-2 border rounded-md"
+          />
+          <input
+            type="text"
+            formControlName="city"
+            placeholder="City *"
+            class="px-3 py-2 border rounded-md"
+          />
+          <input
+            type="text"
+            formControlName="state"
+            placeholder="State *"
+            class="px-3 py-2 border rounded-md"
+          />
+          <input
+            type="text"
+            formControlName="zipCode"
+            placeholder="Zip Code *"
+            class="px-3 py-2 border rounded-md"
+          />
+        </div>
+        <div class="flex items-center">
+          <button
+            type="submit"
+            class="w-full md:w-1/4 bg-primary text-white py-2 rounded-xl mx-auto"
+            (click)="submitInstructorForm()"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
     }
     <!-- Student form -->
     @if(typeId()===2){
     <div class="bg-bgColor rounded-3xl grid grid-cols-2 gap-4 p-3">
       <span
         (click)="setType(1)"
-        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        [class.bg-white]="typeId() === 1"
+        [class.text-bgColor]="typeId() === 1"
+        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg rounded-3xl py-1"
         >Instructor</span
       >
       <span
         (click)="setType(2)"
-        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        [class.bg-white]="typeId() === 2"
+        [class.text-bgColor]="typeId() === 2"
+        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg rounded-3xl py-1"
         >Student</span
       >
     </div>
-    <div class="flex flex-col"></div>
+    <div class="flex flex-col">
+      <form [formGroup]="studentForm" class="mt-4">
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Name *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="mobile"
+            placeholder="Mobile No. *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+        <div class="my-3 text-base text-[#5B5B5B]">Course Details:</div>
+
+        <div class="mb-3">
+          <input
+            type="text"
+            formControlName="college"
+            placeholder="College *"
+            class="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+
+        <div class="mb-3">
+          <select
+            formControlName="courseCategory"
+            class="w-full px-3 py-2 border rounded-md"
+          >
+            <option value="" disabled selected>Course Category *</option>
+            <option value="science">Science</option>
+            <option value="commerce">Commerce</option>
+            <option value="arts">Arts</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <select
+            formControlName="courseLevel"
+            class="w-full px-3 py-2 border rounded-md"
+          >
+            <option value="" disabled selected>Course Level *</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+
+        <div class="flex items-center">
+          <button
+            type="submit"
+            class="w-full md:w-1/4 bg-primary text-white py-2 rounded-xl mx-auto"
+            (click)="submitStudentForm()"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
     }
     <!-- final submition -->
     @if(typeId()===3){
     <div class="flex flex-col items-start">
-      <img src="/imgs/success.png" alt="icon" class="w-1/4" />
+      <div class="flex justify-center items-center w-full">
+        <img src="/imgs/success.png" alt="icon" class="w-1/4" />
+      </div>
       <h1
         class="text-[#1A0710D9] text-5xl my-6 font-Raleway font-bold text-center"
       >
@@ -45,33 +194,66 @@
       <div class="flex flex-col justify-start">
         <div class="flex">
           <span class="text-black font-Raleway font-light">Name:</span>
-          <span class="text-black font-Raleway font-light">Name:</span>
+          <span class="text-black font-Raleway font-light ms-2">{{
+            submittedVal() == 1
+              ? this.instructorForm.get("name")?.value
+              : this.studentForm.get("name")?.value
+          }}</span>
         </div>
         <div class="flex">
           <span class="text-black font-Raleway font-light">Email:</span>
-          <span class="text-black font-Raleway font-light"></span>
+          <span class="text-black font-Raleway font-light ms-2">
+            {{
+              submittedVal() == 1
+                ? this.instructorForm.get("email")?.value
+                : this.studentForm.get("email")?.value
+            }}
+          </span>
         </div>
         <div class="flex mt-8">
           <span class="text-black font-Raleway font-light"
             >Address Details:</span
           >
-          <span class="text-black font-Raleway font-light"></span>
         </div>
         <div class="flex">
           <span class="text-black font-Raleway font-light">Country:</span>
-          <span class="text-black font-Raleway font-light"></span>
+          <span class="text-black font-Raleway font-light ms-2">
+            {{
+              submittedVal() == 1
+                ? this.instructorForm.get("country")?.value
+                : "--"
+            }}
+          </span>
         </div>
         <div class="flex">
           <span class="text-black font-Raleway font-light">City:</span>
-          <span class="text-black font-Raleway font-light"></span>
+          <span class="text-black font-Raleway font-light ms-2">
+            {{
+              submittedVal() == 1
+                ? this.instructorForm.get("city")?.value
+                : "--"
+            }}
+          </span>
         </div>
         <div class="flex">
           <span class="text-black font-Raleway font-light">State:</span>
-          <span class="text-black font-Raleway font-light"></span>
+          <span class="text-black font-Raleway font-light ms-2">
+            {{
+              submittedVal() == 1
+                ? this.instructorForm.get("state")?.value
+                : "--"
+            }}
+          </span>
         </div>
         <div class="flex">
           <span class="text-black font-Raleway font-light">Zip Code:</span>
-          <span class="text-black font-Raleway font-light">11284</span>
+          <span class="text-black font-Raleway font-light">
+            {{
+              submittedVal() == 1
+                ? this.instructorForm.get("zipCode")?.value
+                : "--"
+            }}</span
+          >
         </div>
       </div>
     </div>
