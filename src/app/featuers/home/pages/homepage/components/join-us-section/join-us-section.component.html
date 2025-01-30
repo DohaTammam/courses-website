@@ -1,0 +1,93 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <!-- Join us form -->
+  <div class="md:order-0 order-1 rounded-xl border w-full bg-white p-6">
+    <!-- Instructor form -->
+    @if(typeId()===1 ){
+    <div class="bg-bgColor rounded-3xl grid grid-cols-2 gap-4 p-3">
+      <span
+        (click)="setType(1)"
+        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        >Instructor</span
+      >
+      <span
+        (click)="setType(2)"
+        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        >Student</span
+      >
+    </div>
+    <div class="flex flex-col"></div>
+    }
+    <!-- Student form -->
+    @if(typeId()===2){
+    <div class="bg-bgColor rounded-3xl grid grid-cols-2 gap-4 p-3">
+      <span
+        (click)="setType(1)"
+        class="text-white cursor-pointer text-center font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        >Instructor</span
+      >
+      <span
+        (click)="setType(2)"
+        class="text-white text-center cursor-pointer font-Raleway font-medium text-lg hover:bg-white hover:text-bgColor hover:rounded-3xl py-1"
+        >Student</span
+      >
+    </div>
+    <div class="flex flex-col"></div>
+    }
+    <!-- final submition -->
+    @if(typeId()===3){
+    <div class="flex flex-col items-start">
+      <img src="/imgs/success.png" alt="icon" class="w-1/4" />
+      <h1
+        class="text-[#1A0710D9] text-5xl my-6 font-Raleway font-bold text-center"
+      >
+        You are successfully registered!
+      </h1>
+      <div class="flex flex-col justify-start">
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">Name:</span>
+          <span class="text-black font-Raleway font-light">Name:</span>
+        </div>
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">Email:</span>
+          <span class="text-black font-Raleway font-light"></span>
+        </div>
+        <div class="flex mt-8">
+          <span class="text-black font-Raleway font-light"
+            >Address Details:</span
+          >
+          <span class="text-black font-Raleway font-light"></span>
+        </div>
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">Country:</span>
+          <span class="text-black font-Raleway font-light"></span>
+        </div>
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">City:</span>
+          <span class="text-black font-Raleway font-light"></span>
+        </div>
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">State:</span>
+          <span class="text-black font-Raleway font-light"></span>
+        </div>
+        <div class="flex">
+          <span class="text-black font-Raleway font-light">Zip Code:</span>
+          <span class="text-black font-Raleway font-light">11284</span>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+  <!-- Map -->
+  <div class="order-0 w-full md:order-1 flex justify-center items-center">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.2737003370894!2d31.285511674612177!3d29.97156322496047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583911f34da64f%3A0x189a921b907be88a!2sLink%20Development%20HQ!5e0!3m2!1sar!2seg!4v1738191663318!5m2!1sar!2seg"
+      width="500"
+      height="450"
+      allowfullscreen=""
+      loading="lazy"
+      style="border: 1"
+      class="rounded-xl"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</div>

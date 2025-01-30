@@ -1,0 +1,55 @@
+<!-- Hero  -->
+<div class="bg-bgColor h-48 flex flex-col items-center justify-center">
+  <span class="text-secondary text-4xl font-bold font-Raleway">Courses</span>
+  <div class="text-white text-2xl font-normal font-Raleway">
+    <span class="cursor-pointer" (click)="navigateToHomePage()">Home</span> /
+    <span>Course</span>
+  </div>
+</div>
+<section class="flex flex-col container p-4 mx-auto">
+  <!-- title -->
+  <div class="flex flex-col items-center my-8">
+    <h3 class="text-secondary text-2xl font-semibold font-Raleway">
+      \ Courses \
+    </h3>
+    <h1 class="text-textColor text-4xl font-semibold font-Raleway">
+      Our Courses
+    </h1>
+  </div>
+
+  <!-- Filter -->
+  <div
+    class="grid grid-cols-12 my-6 w-full md:w-4/5 mx-auto justify-center items-center"
+    [formGroup]="filterForm"
+  >
+    <div class="col-span-9 flex items-center me-2">
+      <span class="pi pi-search text-[#25324B] text-sm"></span>
+      <input
+        (ngModelChange)="homePageStore.getCourseByName($event)"
+        formControlName="courseName"
+        placeholder="Course Name"
+        class="placeholder:text-[#7C8493] text-textColor w-full p-2 border-b border-[#D6DDEB]"
+      />
+    </div>
+    <div class="col-span-3">
+      <button
+        class="bg-secondary py-2 text-white text-base font-bold w-full md:w-3/4"
+        (click)="
+          homePageStore.getCourseByName(filterForm.get('courseName')?.value)
+        "
+      >
+        Search
+      </button>
+    </div>
+  </div>
+  <!-- Cards -->
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full justify-center items-center mt-6"
+  >
+    @for(course of homePageStore.courses(); track course.id;){
+    <div class="items-center">
+      <app-course-card [course]="course"></app-course-card>
+    </div>
+    }
+  </div>
+</section>

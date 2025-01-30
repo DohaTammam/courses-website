@@ -1,2 +1,27 @@
-<p>homepage works!</p>
-<span class="pi pi-star-fill text-red-700"></span>
+<section class="flex flex-col min-h-screen">
+  <div class="container mx-auto p-4">
+    <!-- Hero Section -->
+    <app-hero-section></app-hero-section>
+  </div>
+  <!-- Join us section -->
+  <div class="bg-bgColor py-12">
+    <div class="container mx-auto flex flex-col items-center">
+      <!-- Title -->
+      <h3 class="text-secondary text-2xl font-semibold font-Raleway">
+        \ Join us \
+      </h3>
+      <h1 class="text-white text-4xl font-bold font-Raleway mt-2">
+        Hey! Want to join us
+      </h1>
+      <div class="w-5/6 mt-8">
+        <app-join-us-section></app-join-us-section>
+      </div>
+    </div>
+  </div>
+  <!-- Courses -->
+  <div class="container mx-auto p-4">
+    <div class="mt-6">
+      <app-courses></app-courses>
+    </div>
+  </div>
+</section>
